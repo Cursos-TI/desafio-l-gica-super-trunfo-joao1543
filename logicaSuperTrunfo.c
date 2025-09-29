@@ -4,7 +4,7 @@ int main(){
     char estado1, estado2;
     char codigo1[3], codigo2[3], cidade1[50], cidade2[50];
     int habitantes1, habitantes2; 
-    int pontos_tur1, pontos_tur2;
+    int pontos_tur1, pontos_tur2, escolhaAtributo;
     float area1, area2, pib1, pib2,densidade_1, densidade_2;
     float pib_per_capita1, pib_per_capita2, super_poder1, super_poder2;
 
@@ -103,70 +103,173 @@ int main(){
 
 
 
+//Escolha do atributo para comparação das cartas
+printf("*** Agora escolha um atributo para comparar  ***\n");
+printf("1. População\n");
+printf("2. Área\n");
+printf("3. PIB\n");
+printf("4. Número de Pontos Turísticos\n");
+printf("5. Densidade Demográfica\n");
+scanf("%d", &escolhaAtributo);
 
-    printf("******FIM******\n\n");
+
+switch (escolhaAtributo)
+{
+//Atributo população
+case 1:
+    printf("***Atributo escolhido: População***\n\n");
+    break;
+
+//Atributo área
+case 2:
+    printf("***Atributo escolhido: Área***\n\n");
+    break;
+
+//Atributo PIB
+case 3:
+    printf("***Atributo escolhido: PIB***\n\n");
+    break;
+
+//Atributo pontos turísticos
+case 4:
+    printf("***Atributo escolhido: Pontos Turísticos***\n\n");
+    break;
+
+//Atributo densidade demográfica
+case 5:
+    printf("***Atributo escolhido: Densidade Demográfica***\n\n");
+    break;
+
+//Escolha inválida
+default:
+printf("Escolha inválida, Tente outro número!\n\n");
+    break;
+}
 
 
-
-    //Comparando todas as cartas
-    //Em densidade, ganha quem tem o menor número
-    
-    //Comparando a população
-    if(habitantes1 > habitantes2){
-        printf("Cidade 1 tem maior população\n");
-    } else{
-        printf("Cidade 2 tem maior população\n");
+//Comparando todas as cartas
+//Comparando atributo população
+if (escolhaAtributo == 1)
+{
+    if (habitantes1 > habitantes2)
+    {
+        printf("%s", cidade1);
+        printf("%d habitantes\n\n", habitantes1);
+        printf("%s", cidade2);
+        printf("%d habitantes\n\n", habitantes2);
+        printf("Carta 1 venceu!\n");
     }
-
-    //Comparando a área
-    if(area1 > area2){
-        printf("Cidade 1 tem maior área\n");
-    }else{
-        printf("Cidade 2 tem maior área\n");
+    else if (habitantes1 < habitantes2)
+    {
+        printf("%s", cidade1);
+        printf("%d habitantes\n\n", habitantes1);
+        printf("%s", cidade2);
+        printf("%d habitantes\n\n", habitantes2);
+        printf("Carta 2 venceu!\n");
     }
+    else{
+        printf("Empate!\n");
+    }    
+}
 
-    //Comparando o PIB
-    if(pib1 > pib2){
-        printf("Cidade 1 tem maior pib\n");
-    }else{
-        printf("Cidade 2 tem maior pib\n");
+
+//Comparando atributo área
+else if (escolhaAtributo == 2)
+{
+    if (area1 > area2)
+    {
+        printf("%s", cidade1);
+        printf("Área: %.2f\n\n", area1);
+        printf("%s", cidade2);
+        printf("Área: %.2f\n\n", area2);
+        printf("Carta 1 venceu!\n");
     }
-
-    //Comparando os pontos turísticos
-    if(pontos_tur1 > pontos_tur2){
-        printf("Cidade 1 tem mais pontos turísticos\n");
-    }else{
-        printf("Cidade 2 tem mais pontos turísticos\n");
+    else if (area1 < area2)
+    {
+        printf("%s", cidade1);
+        printf("Área: %.2f\n\n", area1);
+        printf("%s", cidade2);
+        printf("Área: %.2f\n\n", area2);
+        printf("Carta 2 venceu!\n");
     }
+    else{
+        printf("Empate!\n");
+    }    
+}
 
-    //Comparando a densidade
-    if(densidade_1 > densidade_2){
-        printf("Cidade 2 tem maior densidade\n");
-    }else{
-        printf("Cidade 1 tem maior densidade\n");
+
+//Comparando atributo PIB
+else if (escolhaAtributo == 3)
+{
+    if (pib1 > pib2)
+    {
+        printf("%s", cidade1);
+        printf("PIB:: %.2f\n\n", pib1);
+        printf("%s", cidade2);
+        printf("PIB: %.2f\n\n", pib2);
+        printf("Carta 1 venceu!\n");
     }
-
-    //Comparando o PIB per Capita
-    if(pib_per_capita1 > pib_per_capita2){
-        printf("Cidade 1 tem maior pib per capita\n\n");
-    }else{
-        printf("Cidade 2 tem maior pib per capita\n\n");
+    else if (pib1 < pib2)
+    {
+        printf("%s", cidade1);
+        printf("PIB: %.2f\n\n", pib1);
+        printf("%s", cidade2);
+        printf("PIB: %.2f\n\n", pib2);
+        printf("Carta 2 venceu!\n");
     }
+    else{
+        printf("Empate!\n");
+    }    
+}
 
-
-    //Definição do Atributo
-    printf("Atributo: População\n");
-
-    //Comparando as cartas baseado no atributo escolhido
-    printf("Carta 1: %d\n", habitantes1);
-    printf("Carta 2: %d\n\n", habitantes2);
-
-    if (habitantes1 > habitantes2){
-        printf("Carta 1 venceu!");
-    }else{
-        printf("Carta 2 venceu!");
+//Comparando atributo pontos turísticos
+else if (escolhaAtributo == 4)
+{
+    if (pontos_tur1 > pontos_tur2)
+    {
+        printf("%s", cidade1);
+        printf("Pontos Turísticos: %d\n\n", pontos_tur1);
+        printf("%s", cidade2);
+        printf("Pontos Turísticos: %d\n\n", pontos_tur2);
+        printf("Carta 1 venceu!\n");
     }
-    
-    
-    return 0;
+    else if (pontos_tur1 < pontos_tur2)
+    {
+        printf("%s", cidade1);
+        printf("Pontos Turísticos: %d\n\n", pontos_tur1);
+        printf("%s", cidade2);
+        printf("Pontos Turísticos: %d\n\n", pontos_tur2);
+        printf("Carta 2 venceu!\n");
+    }
+    else{
+        printf("Empate!\n");
+    }    
+}
+
+
+//Em densidade, ganha quem tem o menor número
+//Comparando atributo densidade
+else if (escolhaAtributo == 5)
+{
+    if (densidade_1 < densidade_2)
+    {
+        printf("%s", cidade1);
+        printf("Densidade Demográfica: %.2f\n\n", densidade_1);
+        printf("%s", cidade2);
+        printf("Densidade Demográfica: %.2f\n\n", densidade_2);
+        printf("Carta 1 venceu!\n");
+    }
+    else if (densidade_1 > densidade_2)
+    {
+        printf("%s", cidade1);
+        printf("Densidade Demográfica: %.2f\n\n", densidade_1);
+        printf("%s", cidade2);
+        printf("Densidade Demográfica: %.2f\n\n", densidade_2);
+        printf("Carta 2 venceu!\n");
+    }
+    else{
+        printf("Empate!\n");
+    }    
+}
+return 0;
 }
